@@ -50,4 +50,9 @@ mas NÃO PRECISAMOS apontar tipos em qualquer circustância
 // A inferência não vai conseguir deduzir tipos que variam
 
 //Union type
-let user: IUser | null = null;
+
+type TUserOrNull = IUser | null;
+
+let user: TUserOrNull = null;
+
+// Type - instância de qualquer tipo
