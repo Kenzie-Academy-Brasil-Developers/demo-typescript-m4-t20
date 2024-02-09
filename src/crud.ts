@@ -1,6 +1,6 @@
 /* interface - tipo que existe para descrever especificamente objetos */
 
-interface ITodo{
+export interface ITodo{
     id: number;
     title: string;
     content: string;
@@ -22,6 +22,7 @@ function removeTodo(removingId: number){
     const index = todoList.findIndex((todo) => todo.id === removingId);
     todoList.splice(index, 1);
 }
+
 
 // as vezes será nulo, as vezes será o objeto de usuário
 
