@@ -27,18 +27,17 @@ function removeTodo(removingId: number){
 // Planta arquitetonica
 class TodoServices {
    // Podemos mas não precisamos
-   id: number = 1;
-   todoList: ITodo[];
+   // O privado ele registringe na instância e também restringe na herança
+   private id: number = 1;
+   private todoList: ITodo[];
 
    constructor(todoList: ITodo[] = []) {
     this.todoList = todoList;
    }
 
-   /* 
-    Sempre que estou utilizando uma variável ou 
-    método declarado no interior uma classe
-    eu precisaria prefixar com o "this.""
-    */
+   getTodoList(){
+      return this.todoList;
+   }
 
    addTodo(title: string, content: string): ITodo {
       const newTodo = { id: this.id, title, content };
@@ -61,8 +60,8 @@ console.log(todoServices.addTodo(
    "Tá sendo super legal!",
    "Sabe que esse negócio de classe nem é tão díficil!"
 ));
-console.log(todoServices.todoList);
+console.table(todoServices.getTodoList());
 
 const secondTodoServices = new TodoServices();
 secondTodoServices.addTodo("Pensei que era programação.", "Mas é engenharia cívil.");
-console.log(secondTodoServices.todoList);
+console.table(secondTodoServices.getTodoList());
